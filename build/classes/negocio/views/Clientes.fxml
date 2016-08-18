@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="negocio.controllers.ClienteController">
+   <children>
+      <TableView fx:id="tb_clientes" layoutX="14.0" layoutY="14.0" prefHeight="482.0" prefWidth="686.0">
+        <columns>
+          <TableColumn fx:id="tbcNit" prefWidth="79.0" text="NIT" />
+          <TableColumn fx:id="tbcDpi" minWidth="0.0" prefWidth="132.0" text="DPI" />
+            <TableColumn fx:id="tbcNombre" minWidth="0.0" prefWidth="141.0" text="Nombre" />
+            <TableColumn fx:id="tbcTelefono" prefWidth="103.0" text="Telefono" />
+            <TableColumn fx:id="tbcDireccion" prefWidth="97.0" text="Dirección" />
+            <TableColumn fx:id="tbcEmail" prefWidth="122.0" text="Email" />
+        </columns>
+      </TableView>
+      <Button layoutX="14.0" layoutY="505.0" mnemonicParsing="false" onAction="#refresh" text="Refrescar" />
+      <Button layoutX="567.0" layoutY="505.0" mnemonicParsing="false" onAction="#modificarCliente" text="Modificar" />
+      <Button layoutX="500.0" layoutY="505.0" mnemonicParsing="false" onAction="#agregarCliente" text="Agregar" />
+      <Button layoutX="641.0" layoutY="505.0" mnemonicParsing="false" onAction="#eliminarCliente" text="Eliminar" />
+   </children>
+</Pane>

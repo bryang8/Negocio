@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="negocio.controllers.MainController">
+   <top>
+      <TabPane fx:id="tabPane" prefHeight="561.0" prefWidth="747.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab fx:id="tab_productos" text="Productos">
+               <content>
+                  <AnchorPane fx:id="pane_productos" prefHeight="572.0" prefWidth="711.0" />
+               </content></Tab>
+          <Tab fx:id="tab_clientes" text="Clientes">
+               <content>
+                  <AnchorPane fx:id="pane_clientes" prefHeight="200.0" prefWidth="200.0" />
+               </content></Tab>
+            <Tab fx:id="tab_proveedores" text="Proveedores">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab fx:id="tab_compra" text="Compra">
+              <content>
+                <AnchorPane fx:id="pane_compra" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab fx:id="tab_venta" text="Venta">
+              <content>
+                <AnchorPane fx:id="pane_venta" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab fx:id="tab_inventario" text="Inventario">
+              <content>
+                <AnchorPane fx:id="pane_inventario" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </top>
+</BorderPane>
