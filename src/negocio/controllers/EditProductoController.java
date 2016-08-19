@@ -93,8 +93,8 @@ public class EditProductoController implements Initializable {
          ResultSet resultado = consulta.executeQuery();
          while(resultado.next()){
             categorias.add(resultado.getString("nombre"));
-            cmbCategoria.setItems(categorias);
          }
+         cmbCategoria.setItems(categorias);
         } catch (SQLException ex) {
             Logger.getLogger(EditProductoController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {

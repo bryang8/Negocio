@@ -6,8 +6,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="negocio.controllers.MainController">
-   <top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="negocio.controllers.MainController">
+   <center>
       <TabPane fx:id="tabPane" prefHeight="561.0" prefWidth="747.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
           <Tab fx:id="tab_productos" text="Productos">
@@ -23,22 +23,23 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
-            <Tab fx:id="tab_compra" text="Compra">
-              <content>
-                <AnchorPane fx:id="pane_compra" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab fx:id="tab_venta" text="Venta">
-              <content>
-                <AnchorPane fx:id="pane_venta" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab fx:id="tab_inventario" text="Inventario">
+            <Tab fx:id="tab_historial" text="Historial">
               <content>
                 <AnchorPane fx:id="pane_inventario" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
         </tabs>
       </TabPane>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Registrar transacción">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#showAddVenta" text="Venta" />
+                  <MenuItem mnemonicParsing="false" onAction="#showAddCompra" text="Compra" />
+               </items></Menu>
+        </menus>
+      </MenuBar>
    </top>
 </BorderPane>

@@ -5,6 +5,15 @@
  */
 package negocio.beans;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.scene.control.Alert;
+import negocio.helpers.Conexion;
+import negocio.helpers.Dialogs;
+
 /**
  *
  * @author bryan
@@ -18,6 +27,9 @@ public class Proveedor {
     private String pagina_web;
     private String email;
     private String contacto_principal;
+    
+    
+    Connection conexion = null;
 
     public Proveedor() {
     }
@@ -97,5 +109,87 @@ public class Proveedor {
         this.contacto_principal = contacto_principal;
     }
     
+    public boolean insertarProveedor(Proveedor proveedor){
+        try {
+            conexion = Conexion.obtener();
+            PreparedStatement consulta;
+            consulta = conexion.prepareStatement("INSERT INTO proveedor (codigo ,nit, razon_social"
+                    + ", direccion, telefono, pagina_web, email, contacto_principal"
+                    + ") VALUES(?,?,?,?,?,?,?,?)");
+            consulta.setInt(1, proveedor.getCodigo());
+            consulta.setString(2, proveedor.getNit());
+            consulta.setString(3, proveedor.getRazon_social());
+            consulta.setString(4, proveedor.getDireccion());
+            consulta.setInt(5, proveedor.getTelefono());
+            consulta.setString(6, proveedor.getPagina_web());
+            consulta.setString(7, proveedor.getEmail());
+            consulta.setString(8, proveedor.getContacto_principal());
+            
+            consulta.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
+            Alert error = Dialogs.getErrorDialog(Alert.AlertType.ERROR, "Negocio", null, "Error at insert a proveedor", ex);
+            error.showAndWait();
+            return false;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
+            Alert error = Dialogs.getErrorDialog(Alert.AlertType.ERROR, "Negocio", null, "Error at insert a proveedor", ex);
+            error.showAndWait();
+            return false;
+        }
+        return true;
+    }
+
+    public boolean editarProveedor(Proveedor proveedor){
+        try {
+            conexion = Conexion.obtener();
+            PreparedStatement consulta;
+            consulta = conexion.prepareStatement("UPDATE proveedor SET nit = ?, razon_social = ?,"
+                    + " direccion = ?, telefono = ?, pagina_web = ?, email = ?, contacto_principal = ?"
+                    + " WHERE codigo = ?");
+            consulta.setString(1, proveedor.getNit());
+            consulta.setString(2, proveedor.getRazon_social());
+            consulta.setString(3, proveedor.getDireccion());
+            consulta.setInt(4, proveedor.getTelefono());
+            consulta.setString(5, proveedor.getPagina_web());
+            consulta.setString(6, proveedor.getEmail());
+            consulta.setString(7, proveedor.getContacto_principal());
+            consulta.setInt(8, proveedor.getCodigo());
+            
+            consulta.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
+            Alert error = Dialogs.getErrorDialog(Alert.AlertType.ERROR, "Negocio", null, "Error at update a proveedor", ex);
+            error.showAndWait();
+            return false;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
+            Alert error = Dialogs.getErrorDialog(Alert.AlertType.ERROR, "Negocio", null, "Error at update a proveedor", ex);
+            error.showAndWait();
+            return false;
+        }
+        return true;
+    }
     
+    
+    public boolean eliminarProveedor(Proveedor proveedor) {
+        try {
+            conexion = Conexion.obtener();
+            PreparedStatement consulta = conexion.prepareStatement("DELETE FROM proveedor WHERE codigo = ?");
+            consulta.setInt(1, proveedor.getCodigo());
+            consulta.executeUpdate();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
+            Alert error = Dialogs.getErrorDialog(Alert.AlertType.ERROR, "Negocio", null, "Error at delete a proveedor", ex);
+            error.showAndWait();
+            return false;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
+            Alert error = Dialogs.getErrorDialog(Alert.AlertType.ERROR, "Negocio", null, "Error at delete a proveedor", ex);
+            error.showAndWait();
+            return false;
+        }
+        return true;
+    }
 }

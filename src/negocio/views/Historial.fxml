@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="negocio.controllers.HistorialController">
+   <children>
+      <TableView fx:id="tb_historial" layoutX="14.0" layoutY="14.0" prefHeight="486.0" prefWidth="686.0">
+        <columns>
+          <TableColumn fx:id="tbcTipo" prefWidth="71.0" text="Tipo" />
+          <TableColumn fx:id="tbcFecha" minWidth="0.0" prefWidth="77.0" text="Fecha" />
+            <TableColumn fx:id="tbcCodigo" minWidth="0.0" prefWidth="124.0" text="Código (Proveedor)" />
+            <TableColumn fx:id="tbcNit" prefWidth="75.0" text="NIT" />
+            <TableColumn fx:id="tbcProducto" prefWidth="101.0" text="Producto" />
+            <TableColumn fx:id="tbcPrecio" prefWidth="77.0" text="Precio" />
+            <TableColumn fx:id="tbcCantidad" prefWidth="69.0" text="Cantidad" />
+            <TableColumn fx:id="tbcTotal" prefWidth="85.0" text="Total" />
+        </columns>
+      </TableView>
+      <Button layoutX="14.0" layoutY="510.0" mnemonicParsing="false" onAction="#refresh" text="Refresh" />
+   </children>
+</Pane>

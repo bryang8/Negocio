@@ -20,8 +20,12 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import negocio.beans.Cliente;
 import negocio.beans.Producto;
+import negocio.beans.Proveedor;
+import negocio.controllers.AddCompraController;
+import negocio.controllers.AddVentaController;
 import negocio.controllers.EditClienteController;
 import negocio.controllers.EditProductoController;
+import negocio.controllers.EditProveedorController;
 import negocio.controllers.MainController;
 import negocio.helpers.Dialogs;
 
@@ -127,4 +131,98 @@ public class Main extends Application {
         }
     }
     
+     public boolean showEditProveedor(Proveedor proveedor, CRUDOperation operacion, String title){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("views/EditProveedor.fxml"));
+            AnchorPane pane = (AnchorPane) loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle(title);
+            dialogStage.getIcons().add(resource.getIcon());
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene escena = new Scene(pane);
+            dialogStage.setScene(escena);
+            dialogStage.setResizable(false);
+            EditProveedorController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            controller.setOperacion(operacion);
+            controller.setMainApp(this);
+            controller.setProveedor(proveedor);
+            
+            dialogStage.showAndWait();
+            
+            return controller.fuePresionadoOk();
+            
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            Alert error = Dialogs.getErrorDialog(Alert.AlertType.ERROR, "Negocio", null, "Error al cargar el archivo FXML", e);
+            error.showAndWait();
+            return false;
+        }
+    
+    }
+     
+    public boolean showAddVenta(){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("views/AddVenta.fxml"));
+            AnchorPane pane = (AnchorPane) loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Registrar venta");
+            dialogStage.getIcons().add(resource.getIcon());
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene escena = new Scene(pane);
+            dialogStage.setScene(escena);
+            dialogStage.setResizable(false);
+            AddVentaController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            controller.setMainApp(this);
+            
+            dialogStage.showAndWait();
+            
+            return controller.fuePresionadoOk();
+            
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            Alert error = Dialogs.getErrorDialog(Alert.AlertType.ERROR, "Negocio", null, "Error al cargar el archivo FXML", e);
+            error.showAndWait();
+            return false;
+        }
+    
+    }
+    
+     public boolean showAddCompra(){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("views/AddCompra.fxml"));
+            AnchorPane pane = (AnchorPane) loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Registrar compra");
+            dialogStage.getIcons().add(resource.getIcon());
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene escena = new Scene(pane);
+            dialogStage.setScene(escena);
+            dialogStage.setResizable(false);
+            AddCompraController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            controller.setMainApp(this);
+            
+            dialogStage.showAndWait();
+            
+            return controller.fuePresionadoOk();
+            
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            Alert error = Dialogs.getErrorDialog(Alert.AlertType.ERROR, "Negocio", null, "Error al cargar el archivo FXML", e);
+            error.showAndWait();
+            return false;
+        }
+    
+    }
 }

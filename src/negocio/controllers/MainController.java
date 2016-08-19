@@ -29,13 +29,13 @@ public class MainController implements Initializable {
     private Main mainApp;
     private Pane productosLayout;
     private Pane clientesLayout;
+    private Pane proveedoresLayout;
+    private Pane historialLayout;
     
     @FXML Tab tab_productos;
     @FXML Tab tab_clientes;
     @FXML Tab tab_proveedores;
-    @FXML Tab tab_compra;
-    @FXML Tab tab_venta;
-    @FXML Tab tab_inventario;
+    @FXML Tab tab_historial;
     
       /**
      * Initializes the controller class.
@@ -49,6 +49,8 @@ public class MainController implements Initializable {
         this.mainApp = mainApp;
         loadProductos();
         loadClientes();
+        loadProveedores();
+        loadHistorial();
     }
     
     public void loadProductos(){
@@ -77,6 +79,45 @@ public class MainController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    
+    public void loadProveedores(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("views/Proveedores.fxml"));
+            proveedoresLayout = (Pane) loader.load();
+            ProveedoresController controller = loader.getController();
+            controller.setMainApp(mainApp);
+            tab_proveedores.setContent(proveedoresLayout);
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void loadHistorial(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("views/Historial.fxml"));
+            historialLayout = (Pane) loader.load();
+            HistorialController controller = loader.getController();
+            controller.setMainApp(mainApp);
+            tab_historial.setContent(historialLayout);
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void showAddVenta(){
+        mainApp.showAddVenta();
+    }
+    
+    
+    @FXML
+    private void showAddCompra(){
+        mainApp.showAddCompra();
     }
     
 }

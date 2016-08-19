@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="negocio.controllers.ProveedoresController">
+   <children>
+      <TableView fx:id="tb_proveedores" layoutX="14.0" layoutY="14.0" prefHeight="482.0" prefWidth="686.0">
+        <columns>
+          <TableColumn fx:id="tbcNit" prefWidth="98.0" text="NIT" />
+          <TableColumn fx:id="tbcRazon" minWidth="0.0" prefWidth="96.0" text="Razón social" />
+            <TableColumn fx:id="tbcDireccion" minWidth="0.0" prefWidth="118.0" text="Dirección" />
+            <TableColumn fx:id="tbcTelefono" prefWidth="89.0" text="Telefono" />
+            <TableColumn fx:id="tbcPagina" prefWidth="95.0" text="Página web" />
+            <TableColumn fx:id="tbcEmail" prefWidth="102.0" text="E-mail" />
+            <TableColumn fx:id="tbcContactoP" prefWidth="81.0" text="Contacto P." />
+        </columns>
+      </TableView>
+      <Button layoutX="14.0" layoutY="505.0" mnemonicParsing="false" onAction="#refresh" text="Refrescar" />
+      <Button layoutX="567.0" layoutY="505.0" mnemonicParsing="false" onAction="#modificarProveedor" text="Modificar" />
+      <Button layoutX="500.0" layoutY="505.0" mnemonicParsing="false" onAction="#insertarProveedor" text="Agregar" />
+      <Button layoutX="641.0" layoutY="505.0" mnemonicParsing="false" onAction="#eliminarProveedor" text="Eliminar" />
+   </children>
+</Pane>
