@@ -65,12 +65,16 @@ public class AddCompraController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         setComboBoxes();
         txtCantidad.textProperty().addListener((observable, oldValue, newValue) -> {
-           cantidad = Integer.parseInt(newValue);
-           lblTotal.setText(String.valueOf(cantidad * precio));
+           if(!newValue.isEmpty()){
+            cantidad = Integer.parseInt(newValue);
+            lblTotal.setText("Q " + String.valueOf(cantidad * precio));
+           }
         });
         txtPrecio.textProperty().addListener((observable, oldValue, newValue) -> {
-           precio = Double.parseDouble(newValue);
-           lblTotal.setText(String.valueOf(cantidad * precio));
+           if(!newValue.isEmpty()){
+            precio = Double.parseDouble(newValue);
+            lblTotal.setText("Q " + String.valueOf(cantidad * precio));
+           }
         });
     }
     

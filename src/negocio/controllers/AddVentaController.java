@@ -79,18 +79,20 @@ public class AddVentaController implements Initializable{
     }
     
     public void setTotal(){
-        revisarExistencia(cmbProducto.getValue().toString());
-        if(cmbProducto.getValue() != null){
-            if (cantidad<12){
-                precio = getPrecioUnidad(cmbProducto.getValue().toString());
+        if(cmbProducto.getValue() !=null){
+            revisarExistencia(cmbProducto.getValue().toString());
+            if(cmbProducto.getValue() != null){
+                if (cantidad<12){
+                    precio = getPrecioUnidad(cmbProducto.getValue().toString());
+                }
+                else if (cantidad >11 && cantidad < 36) {
+                    precio = getPrecioDocena(cmbProducto.getValue().toString());
+                }
+                else{
+                    precio = getPrecioMayor(cmbProducto.getValue().toString());
+                }
+                lblTotal.setText("Q " + String.valueOf(cantidad * precio));
             }
-            else if (cantidad >11 && cantidad < 36) {
-                precio = getPrecioDocena(cmbProducto.getValue().toString());
-            }
-            else{
-                precio = getPrecioMayor(cmbProducto.getValue().toString());
-            }
-            lblTotal.setText("Q " + String.valueOf(cantidad * precio));
         }
     }
     

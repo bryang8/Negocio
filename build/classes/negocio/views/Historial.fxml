@@ -15,9 +15,9 @@
             <TableColumn fx:id="tbcCodigo" minWidth="0.0" prefWidth="124.0" text="Código (Proveedor)" />
             <TableColumn fx:id="tbcNit" prefWidth="75.0" text="NIT" />
             <TableColumn fx:id="tbcProducto" prefWidth="101.0" text="Producto" />
-            <TableColumn fx:id="tbcPrecio" prefWidth="77.0" text="Precio" />
+            <TableColumn fx:id="tbcPrecio" prefWidth="77.0" text="Precio (Q)" />
             <TableColumn fx:id="tbcCantidad" prefWidth="69.0" text="Cantidad" />
-            <TableColumn fx:id="tbcTotal" prefWidth="85.0" text="Total" />
+            <TableColumn fx:id="tbcTotal" prefWidth="85.0" text="Total (Q)" />
         </columns>
       </TableView>
       <Button layoutX="14.0" layoutY="510.0" mnemonicParsing="false" onAction="#refresh" text="Refresh" />
